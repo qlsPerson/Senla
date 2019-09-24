@@ -1,23 +1,27 @@
 package com.qlsperson.senla.task6;
 
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 
-public class Backpack {
+class Backpack {
     private ArrayList<Thing> bestThings;
     private int bestCost;
     private int capacity;
     private int[][] temp;
 
-    public Backpack(int capacity) {
+    Backpack(int capacity) {
+        if(capacity <= 0) {
+            throw new InputMismatchException("Грузоподъемность рюкзака должна быть больше 0");
+        }
         this.bestThings = new ArrayList<>();
         this.capacity = capacity;
     }
 
-    public int getCapacity() { return capacity; }
-    public int getBestCost() { return bestCost; }
-    public ArrayList<Thing> getBestThings() { return bestThings; }
+    int getCapacity() { return capacity; }
+    int getBestCost() { return bestCost; }
+    ArrayList<Thing> getBestThings() { return bestThings; }
 
-    public void fillBackpack(ArrayList<Thing> things) {
+    void fillBackpack(ArrayList<Thing> things) {
         temp = new int[things.size() + 1][capacity + 1];
         for (int i = 1; i <= things.size(); i++) {
             for (int j = 1; j <= capacity; j++) {

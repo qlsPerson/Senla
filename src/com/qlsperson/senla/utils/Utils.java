@@ -92,7 +92,14 @@ public final class Utils {
     }
 
     public static boolean isPalindrome(int number) {
-        return number <= 9 || String.valueOf(number).charAt(0) == String.valueOf(number).charAt(1);
+        String temp = String.valueOf(number);
+        int lengthNumber = temp.length();
+        for (int i = 0; i < (lengthNumber/2); i++) {
+            if(temp.charAt(i) != temp.charAt(lengthNumber - i - 1)) {
+                return false;
+            }
+        }
+        return true;
     }
 
     public static ArrayList<Integer> palindromeNumbers(int number) {

@@ -7,9 +7,10 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         try (Scanner scanner = new Scanner(System.in)) {
-            ArrayList<Thing> things = new ArrayList<>();
             System.out.print("Введите грузоподъемность рюкзака: ");
             Backpack backpack = new Backpack(scanner.nextInt());
+            Backpack.Cargo cargo = backpack.new Cargo();
+            ArrayList<Backpack.Cargo.Thing> things = new ArrayList<>();
             System.out.print("Введите количество вещей: ");
             int countThings = scanner.nextInt();
             if (countThings > 0) {
@@ -18,10 +19,10 @@ public class Main {
                     int weightThing = scanner.nextInt();
                     System.out.print("Введите стоимость вещи №" + i + ": ");
                     int costThing = scanner.nextInt();
-                    things.add(new Thing(i, weightThing, costThing));
+                    things.add(cargo.new Thing(i, weightThing, costThing));
                 }
                 backpack.fillBackpack(things);
-                for (Thing t : backpack.getThings()) {
+                for (Backpack.Cargo.Thing t : backpack.getThings()) {
                     System.out.print("Вещь под №" + t.getNumber());
                     System.out.print(" c весом: " + t.getWeight());
                     System.out.print(" и стоимостью: " + t.getCost());

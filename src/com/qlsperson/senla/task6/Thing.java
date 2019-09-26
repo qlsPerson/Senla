@@ -8,7 +8,7 @@ class Thing {
     private int cost;
 
     Thing(int number, int weight, int cost) {
-        if(weight <= 0 || cost <= 0 ) {
+        if (weight <= 0 || cost <= 0) {
             throw new InputMismatchException("Вес и стоимость должны быть больше 0");
         }
         this.number = number;
@@ -16,7 +16,15 @@ class Thing {
         this.cost = cost;
     }
 
-    int getNumber() { return number; }
-    int getWeight() { return weight; }
-    int getCost() { return cost; }
+    int getNumber() {
+        return number;
+    }
+
+    int getWeight() {
+        return weight;
+    }
+
+    int getCost() {
+        return cost;
+    }
 }
